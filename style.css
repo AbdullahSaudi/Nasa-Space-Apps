@@ -1,0 +1,1745 @@
+/* general settings */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /***/
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 36px;
+    line-height: 54px;
+    color: #fff;
+}
+
+h4 {
+    font-size: 26px;
+    line-height: 54px;
+    color: #fff;
+}
+
+h5 {
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+}
+
+p{
+    margin: 30px 30px 30px;
+    font-size: 17px;
+    line-height: 30px;
+    color: #fff;
+}
+
+/* Scroll elements appear effect*/
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* BackGround Scence */
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#111425, #3751e0);
+    background-attachment: fixed; /***/
+    overflow: hidden; /***/
+}
+
+.scene::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(to top,#e59438, transparent);
+}
+
+.scene i {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: star-animate linear infinite;
+}
+
+/*BackGround Scene Animation*/
+@keyframes star-animate {
+    0%
+    {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%, 90%{
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+/*The Sun*/
+#sun {
+    position: absolute;
+    top: 25%;
+    left: 39%;
+    width: 20%;
+    height: 20%;
+}
+
+#sun *,#sun *:before, #sun *:after{ 
+    position: absolute;
+}
+
+/*The Rings of the sun*/
+#rings{
+    position: absolute;
+    left: -260%;
+    z-index: 1;
+}
+
+#rings div:before, #rings div:after{
+    position: absolute;
+    content: "";
+    z-index: 2;
+    height: inherit;
+    width: inherit;
+    background: inherit;
+}
+
+#rings div:before{
+    transform: rotate(60deg);
+}
+
+#rings div:after{
+    transform: rotate(-60deg);
+}
+
+#rings div:nth-child(even){
+    animation: rotateR 12s infinite linear;
+}
+
+#rings div:nth-child(odd){
+    animation: rotateL 12s infinite linear;
+    transform: rotate(15deg);
+    animation-direction:reverse ;
+}
+
+#rings div:nth-child(1){
+    position: absolute;
+    animation-duration:45s;
+    background: rgba(255, 230, 84, 0.5);
+    width: 450px;
+    height: 450px;
+}
+
+#rings div:nth-child(2){
+    position: absolute;
+    animation-duration: 49s;
+    background: rgba(255, 165, 6, 0.5);
+    width: 440px;
+    height: 440px;
+}
+
+
+/*The Sun Animations*/
+/*rotateR*/
+@-webkit-keyframes rotateR{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes rotateR{
+    from{
+        -moz-transform: rotate(0deg);
+    }
+    to{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes rotateR{
+    from{
+        -ms-transform: rotate(0deg);
+    }
+    to{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-o-keyframes rotateR{
+    from{
+        -o-transform: rotate(0deg);
+    }
+    to{
+        -o-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateR{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/*rotateL*/
+@-webkit-keyframes rotateL{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes rotateL{
+    from{
+        -moz-transform: rotate(0deg);
+    }
+    to{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes rotateL{
+    from{
+        -ms-transform: rotate(0deg);
+    }
+    to{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-o-keyframes rotateL{
+    from{
+        -od-transform: rotate(0deg);
+    }
+    to{
+        -o-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateL{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/*The Probe*/
+#probe{
+    position: absolute;
+    width: 29%;
+    object-fit: cover;
+    left: 22%;
+    transform: rotate(-15deg);
+    animation: probeA;
+    animation-duration: 7s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/*The Probe Animation*/
+@keyframes probeA{
+    to
+    {
+        transform: translateY(120%) rotate(15deg);
+    }
+}
+
+/*The Text*/
+#text{
+    position:absolute;
+    top: 20%;
+    left: 55%;
+    color: white;
+    font-size: 400%;
+    font-weight: 700;
+}
+
+/*The Arrow*/
+#drob-arrow{
+    position: absolute;
+    object-fit: cover;
+    width: 13%;
+    left: 65%;
+    top: 40%;
+    opacity: 0;
+    animation: move 1.1s infinite ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+
+@keyframes move{
+    0%{
+        opacity: 0;
+        margin-top: 0;
+    }
+    50%{
+        opacity: 0.5;
+        margin-top: 100px;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+/*The Cloud*/
+
+.scene #cloud1 {
+    position: absolute;
+    bottom: -10%;
+    width: 70%;
+    left: -5%;
+    z-index: 2;
+    object-fit: cover;
+}
+
+.scene #cloud2 {
+    position: absolute;
+    bottom: -10%;
+    width: 40%;
+    right: 0;
+    z-index: 2;
+    object-fit: cover;
+}
+
+
+
+/** Info Section **/
+/* Text Intro to The illustration of Parker solar probe*/
+.text-intro {
+    text-align: left;
+    background-color: #e59438;
+}
+
+.text-intro h2{
+    text-align: center;
+}
+
+.text-intro p {
+    margin: 0;
+    padding: 30px 30px 30px;;
+}
+
+
+/* Intro to The illustration of Parker solar probe*/
+
+.intro-ill{
+    padding-top: 70px;
+    text-align: center;
+    background: #e59438;
+}
+
+.intro-ill-box{
+    display: flex;
+    background: #e59438 ;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.intro-ill-box .fe-box{
+    width: 220px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);  /********/
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+    margin: 55px 40px;
+}
+
+.intro-ill-box .fe-box:hover{
+    box-shadow: 20px 20px 54px rgba(70, 62, 221, 0.1);
+}
+
+.intro-ill-box .fe-box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.intro-ill-box .fe-box a{
+    display: inline-block;  /******/
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 9px;
+    color: #088178;
+    background-color: #fff;
+    text-decoration: none;
+    font-weight: 540;
+    transition: 0.2s ease;
+}
+
+.intro-ill-box .fe-box a:hover{
+    color: #e59438;
+}
+
+
+/* The illustration of Parker solar probe (Shield) */
+.ill-probe{
+    position: relative;
+    background: #e59438 ;
+    color: #fff;
+    padding: 40px 30px 50px;
+}
+
+.ill-probe p{
+    margin: 30px 30px 30px;
+}
+
+.ill-probe .ill-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.ill-probe h3{
+    text-align: center;
+}
+
+.ill-probe .ill{
+    width: 21%;
+    min-height: 550px;
+    min-width: 250px;
+    padding: 10px 12px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #cce7d0;
+    border-radius: 100% 0% 100% 0% / 20% 89% 11% 80%;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(0, 0, 0, 0.1);
+    background: linear-gradient(to top, #e26822, #e28822);
+    margin: 15px 0;
+    transition: 0.2s ease /****/;
+    position: relative;
+}
+
+.ill-probe .ill:hover{
+    box-shadow: 20px 20px 30px rgb(0, 0, 0, 0.3);
+}
+
+.ill-probe .ill i{
+    margin-top: 15px;
+    font-size: 62px;
+    color: #fff;
+}
+
+.ill-probe .probe2{
+    width: 400px;
+    height: auto;
+    position: absolute;
+    left:75%;
+    margin-left: -100px;
+    transform: translateX(-160px) rotate(-115deg);
+    animation: probeB;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/*The Probe Animation*/
+
+@keyframes probeB{
+to
+{
+    transform: translateX(100px) rotate(115deg);
+}
+}
+
+/* The Fire */
+.mo-fire {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    left:75%;
+    margin-left: -100px;
+    bottom: 50px;
+}
+
+.mo-fire svg {
+    width: 100%;
+    height: auto;
+    position: relative
+}
+
+.flame {
+    animation-name: flamefly;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0;
+    transform-origin: 50% 50% 0;
+}
+
+.flame.one {
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+
+.flame3.two{
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.flame-main {
+    animation-name: flameWobble;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.flame-main.one {
+    animation-duration: 4s;
+    animation-delay: 1s;
+}
+
+.flame-main.two {
+    animation-duration: 3s;
+    animation-delay: 2s;
+}
+.flame-main.three {
+    animation-duration: 2.1s;
+    animation-delay: 3s;
+}
+
+.flame-main.four {
+    animation-duration: 3.2s;
+    animation-delay: 4s;
+}
+
+.flame-main.five {
+    animation-duration: 2.5s;
+    animation-delay: 5s;
+}
+
+/*Fire Animation*/
+
+@keyframes flameWobble {
+    50% {
+        transform: scale(1,1.2) translate(0, -30px) rotate(-2deg);
+    }
+}
+
+@keyframes flamefly {
+    0%{
+        transform: translate(0) rotate(180deg);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-20px, -100px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+
+/* The illustration of Parker solar probe (Sweap) */
+.ill-probe2{
+    position: relative;
+    background: #84007d;
+    color: #fff;
+    padding: 40px 30px 50px;
+    text-align: center;
+}
+
+
+.ill-probe2 p{
+    margin: 30px 30px 30px;
+}
+
+.ill-probe2 .ill-container2 {
+    display: flex;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.ill-probe2 .ill2{
+    width: 21%;
+    min-height: 550px;
+    min-width: 250px;
+    padding: 10px 12px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #cce7d0;
+    border-radius: 80% 20% 65% 35% / 30% 87% 13% 70%  ;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(0, 0, 0, 0.1);
+    background: linear-gradient(to top, #a2157b, #cf1b9d);
+    margin: 15px 220px;
+    transition: 0.2s ease /****/;
+    position: relative;
+}
+
+.ill-probe2 .ill2:hover{
+    box-shadow: 20px 20px 30px rgb(0, 0, 0, 0.3);
+}
+
+.ill-probe2 .ill2 i{
+    margin-top: 15px;
+    font-size: 62px;
+    color: #fff;
+}
+
+.ill-probe2 img{
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+/* The illustration of Parker solar probe (Fields) */
+
+.fields-section {
+    background: #22228b;
+}
+
+.fields-section img{
+    width: auto;
+    height: 300px;
+}
+
+
+.fields-section .ill2{
+    background: linear-gradient(to top, #222b8b, #2c2cb4);
+    border-radius: 58% 42% 94% 6% / 7% 90% 10% 93%;
+}
+
+/* The illustration of Parker solar probe (WISPER) */
+
+.wisper-section {
+    background: #828200;
+}
+
+.wisper-section img{
+    width: auto;
+    height: 300px;
+}
+
+.wisper-section .ill2{
+    background: linear-gradient(to top, #828200, #9b9b00);
+    border-radius: 77% 23% 81% 19% / 11% 90% 10% 89% ;
+}
+
+/* The illustration of Parker solar probe (IS☉IS ) */
+
+.isois-section {
+    background: #00998c;
+}
+
+.isois-section .img-1{
+    width: auto;
+    height: 300px;
+}
+
+.isois-section .img-2{
+    padding-top:40px ;
+    width: auto;
+    height: 450px;
+}
+
+
+.isois-section .ill2{
+    background: linear-gradient(to top, #00998c, #00ccbb);
+    border-radius: 89% 11% 89% 11% / 7% 91% 9% 93%;
+}
+
+/* Launching of Parker solar probe */
+
+.launching-section {
+    background: #45b3e0;
+    overflow-y: hidden;
+}
+
+.launching-section .cloud{
+    background: #fff;
+    background: linear-gradient(top, white 5%, #f1f1f1 100%);
+    filter: 
+    progid:DXImageTransform.microsoft.gradient(startColorstr='white', endColorstr='#f1f1f1', GradientType=0);
+    border-radius: 100px;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    height: 220px;
+    position: relative;
+    width: 550px;
+    margin: 100px 110px 0px;
+}
+
+.launching-section .cloud p {
+    padding-top: 20px;
+    color: #606063;
+}
+
+.launching-section .cloud:after, .cloud:before {
+    background: white;
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+
+.launching-section .cloud:after{
+    border-radius: 100px;
+    height: 100px;
+    left: 50px;
+    top: -50px;
+    width: 100px;
+}
+
+.launching-section .cloud:before{
+    border-radius: 200px;
+    height: 180px;
+    right: 50px;
+    top: -90px;
+    width: 180px;
+}
+
+/*Cloud background*/
+#background-wrap{
+    bottom: 0;
+    left: 0;
+    padding-top: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+@keyframes animateCloud {
+    0%{
+        margin-left: -1000px;
+    }
+    100%{
+        margin-left: 80%;
+    }
+}
+
+.x1{
+    animation: animateCloud 15s linear infinite;
+    transform: scale(0.65);
+}
+
+.x2{
+    animation: animateCloud 5s linear infinite;
+    transform: scale(0.3);
+}
+
+.x3{
+    animation: animateCloud 10s linear infinite;
+    transform: scale(0.5);
+}
+
+.x4{
+    animation: animateCloud 6s linear infinite;
+    transform: scale(0.4);
+}
+
+.x5{
+    animation: animateCloud 7s linear infinite;
+    transform: scale(0.55);
+}
+
+.launching-section .cloud-n{
+    background: #fff;
+    background: linear-gradient(top, white 5%, #f1f1f1 100%);
+    filter: 
+    progid:DXImageTransform.microsoft.gradient(startColorstr='white', endColorstr='#f1f1f1', GradientType=0);
+    border-radius: 100px;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    position: relative;
+    width: 350px;
+}
+
+.launching-section .cloud-n:after, .cloud-n:before {
+    background: white;
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+
+.launching-section .cloud-n:after{
+    border-radius: 100px;
+    height: 100px;
+    left: 50px;
+    top: -50px;
+    width: 100px;
+}
+
+.launching-section .cloud-n:before{
+    border-radius: 200px;
+    height: 180px;
+    right: 50px;
+    top: -90px;
+    width: 180px;
+}
+
+
+/*The Roket*/
+
+.roket-container {
+    width: 202px; 
+    height: 380px;
+    position: absolute;
+    left: 0; 
+    top: 500px; 
+    right: 0; 
+    bottom: 0;
+    margin: auto;
+    animation: vibration 0.2s infinite;
+}
+@keyframes vibration {
+    0% {
+    transform: translate(0,0) rotate(45deg);
+}
+    50% {
+    transform: translate(1px,-1px) rotate(45deg);
+}
+    100% {
+    transform: translate(0,0) rotate(45deg);
+}
+} 
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 20px;     
+    border-radius:50%;
+    z-index: 9999;
+    animation: hyperspace 0.4s infinite;
+    background: linear-gradient(135deg, #F0CE7A 20%, #CDF081 80%, #F0E91D 100%) fixed;          
+    }    
+    
+    .star-1 {
+    left: 50px;
+    top: -10px;      
+    animation-delay: 0.10s;
+    animation-delay: 0.10s;
+    }
+    .star-2 {
+    right: 60px;
+    top: 30px;
+    animation-delay: 0.10s;
+    animation-delay: 0.10s;
+    }
+    .star-3 {
+    top: 80px;
+    left: 25px;
+    animation-delay: 0.2s;
+    animation-delay: 0.2s;
+    }
+    .star-4 {
+    top: -20px;
+    right: 75px;
+    animation-delay: 0.2s;
+    animation-delay: 0.2s;
+    }
+    .star-5 {
+    right: 30px;
+    top: -60px;
+    animation-delay: 0.30s;
+    animation-delay: 0.30s;
+    }
+    .star-6 {
+    right: 160px;
+    top: 50px;
+    animation-delay: 0.40s;
+    animation-delay: 0.40s;
+    }
+    .star-7 {
+    top: 20px;
+    left: 75px;
+    animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    }
+    .star-8 {
+    top: -30px;
+    right: 95px;
+    animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }
+    .star-9 {
+    right: 30px;
+    top: -60px;
+    animation-delay: 0.30s;
+    animation-delay: 0.30s;
+    }
+    .star-10 {
+    right: 160px;
+    top: 50px;
+    animation-delay: 0.40s;
+    animation-delay: 0.40s;
+    }
+    .star-11 {
+    top: 20px;
+    left: 75px;
+    animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    }
+    .star-12 {
+    top: -30px;
+    right: 95px;
+    animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }
+    .star-13 {
+    left: -30px;
+    top: -60px;
+    animation-delay: 0.30s;
+    animation-delay: 0.30s;
+    }
+    .star-14 {
+    right: -20px;
+    top: 50px;
+    animation-delay: 0.40s;
+    animation-delay: 0.40s;
+    }
+    .star-15 {
+    top: 20px;
+    left: -75px;
+    animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    }
+    .star-16 {
+    top: -30px;
+    right: -95px;
+    animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }
+    
+    @keyframes hyperspace {
+    0% {
+        transform: translate(0, -100px) scale(1, 0);
+        transform: translate(0, -100px) scale(1, 0);
+        opacity: 1;
+}
+    100% {
+        transform: translate(0, 400px) scale(1, 1);
+        transform: translate(0, 400px) scale(1, 1);
+        opacity: 0;
+    }
+    }
+
+.capsule { 
+    position: absolute;
+    left: 46px; top: 5px;
+    width: 111px; height: 156px;
+    overflow: hidden;
+    z-index: 150;
+}
+.capsule .top {
+    position: absolute;
+    left: 0;
+    width: 0; height: 0; padding: 0;
+    border-bottom: 62px solid #C5D7F0;
+    border-left: 56px solid transparent;
+    border-right: 56px solid transparent;
+}
+.capsule .top:after {
+    content:'';
+    position: absolute;
+    left: 25px; top: -14px;
+    width: 0; height: 0;
+    border-bottom: 84px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 156px solid transparent;
+    transform: skew(42deg);
+    z-index: 150;
+}
+.capsule .top .shadow { 
+    position: absolute;
+    width: 0; height: 0;
+    top: -20px; left: -3px;
+    border-bottom: 40px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 80px solid transparent;
+    transform: skew(26deg);
+    z-index: 150;
+}
+
+.capsule .base {
+    position: absolute;
+    top: 62px; left: 0px;
+    width: 112px; height: 94px;
+    background: linear-gradient(to right, #C5D7F0 0%, #C5D7F0 65%, #A697F0 65%, #A697F0 100%);
+}
+
+.wing-left { 
+    position: absolute;
+    height: 103px; width: 0; padding: 0;
+    top: 82px; left: 16px;
+    border-right: 38px solid #565E69;
+    border-top: 21px solid transparent;
+    border-bottom: 19px solid transparent;
+    transform: rotate(10deg) skew(5deg);
+    z-index: 50;
+}
+.wing-left:after { 
+    content:'';
+    display: block;
+    position: absolute;
+    bottom: -50px;
+    width: 0; height: 0;
+    border-top: 20px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid transparent
+}
+
+.wing-right { 
+    position: absolute;
+    height: 97px; width: 0; padding: 0;
+    top: 67px; right: 17px;
+    border-right: 40px solid #565E69;
+    border-top: 0px solid transparent;
+    border-bottom: 15px solid transparent;
+    transform: rotate(-10deg) skew(-5deg);
+    z-index: 50;
+}
+.wing-right:after { 
+    content:'';
+    display: block;
+    position: absolute;
+    top: -33px; left: -19px;
+    width: 0; height: 0;
+    border-top: 30px solid transparent;
+    border-right: 68px solid transparent;
+    border-bottom: 45px solid transparent
+}
+.exhaust {
+    position: absolute;
+    width: 101px; height: 0;
+    top: 156px; left: 51px;
+    border-top: 23px solid #565E69;
+    border-left: 9px solid transparent;
+    border-right: 8px solid transparent;
+    z-index: 100;
+}
+
+.window-big { 
+    width: 70px; height: 70px;
+    background-color: #565E69;
+    border-radius: 50%;
+    position: absolute;
+    top: 57px; left: 66px;
+    z-index: 550;
+}
+.window-small { 
+    width: 44px; height: 44px;
+    background-color: #9ADBC3;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px; left: 79px;
+    z-index: 550;
+}
+
+.fire-1 {
+    position: absolute;
+    left: 64px; top: 169px;
+    width: 70px; height: 70px;
+    background: linear-gradient(135deg, #ef8832 0%, #ef8832 50%, #e82134 50%, #e82134 100%);
+    transform: rotate(-40deg) skew(1deg, -11deg);
+    z-index: 99;
+    animation: main-fire 0.1s ease-in infinite;
+}
+@keyframes main-fire {
+    0% {
+    transform: translate(0,5px) scale(1.1,1)
+    rotate(-33deg) skew(0deg, -30deg);
+}
+    100% {
+    transform: translate(0,0) scale(1,1) rotate(-33deg) skew(0deg, -30deg);
+}
+}
+
+.fire-2 {
+    position: absolute;
+    height: 33px;
+    width: 33px;
+    top: 230px;
+    left: 63px;
+    transform-origin: 50% 50%;
+    transform: rotate(-33deg) skew(0deg, -30deg);
+    z-index: 200;
+    background: linear-gradient(135deg, #E82134 0%, #E82134 50%, #EF8B32 50%, #EF8B32 100%);
+    animation-delay: 0.2s;
+    animation: fire_propulsion 0.3s ease-in infinite;
+    }
+
+.fire-3 {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 196px;
+    left: 58px;
+    transform-origin: 50% 50%;
+    transform: rotate(-33deg) skew(0deg, -30deg);
+    z-index: 20;
+    background: linear-gradient(135deg, #EF8B32 0%, #EF8B32 50%, #E82134 50%, #E82134 100%);
+    animation-delay: 0.2s;
+    animation: fire_propulsion 0.3s ease-in infinite;
+    }
+
+    .fire-4 {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: 200px;
+    transform-origin: 50% 50%;
+    transform: rotate(-33deg) skew(0deg, -30deg);
+    z-index: 20;
+    left: 126px;
+    background: linear-gradient(135deg, #E82134 0%, #E82134 50%, #EF8B32 50%, #EF8B32 100%);
+    animation: fire_propulsion 0.3s ease-in infinite;
+    }
+@keyframes fire_propulsion {
+    0% {
+        transform: translate(0, -10px) scale(1) rotate(-33deg) skew(0deg, -30deg);
+        transform-origin: 50% 50%;
+        opacity: 1;
+}
+    100% {
+        transform: translate(0, 50px) scale(0.7) rotate(-33deg) skew(0deg, -30deg);
+        opacity: 0;
+}
+    }
+
+.spark-1 {
+    position: absolute;
+    bottom: 77px;
+    z-index: 20;
+    right: 70px;
+    width: 12px;
+    height: 12px;
+    background: #EF8B32;
+    transform-origin: 50% 50%;
+    }
+
+    .spark-2 {
+    position: absolute;
+    bottom: 68px;
+    z-index: 20;
+    left: 132px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background: #EF8B32;
+    animation-delay: 0.22s;
+    }
+
+    .spark-3 {
+    position: absolute;
+    bottom: 80px;
+    z-index: 20;
+    left: 109px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background: #E82134;
+    animation-delay: 0.32s;
+    }
+
+    .spark-4 {
+    position: absolute;
+    bottom: 20px;
+    left: 83px;
+    z-index: 20;
+    width: 10px;
+    height: 10px;
+    background: #EF8B32;
+    animation-delay: 0.16s;
+    }
+    
+    .propulsed, .spark-1, .spark-2, .spark-3, .spark-4 {animation: dancing_fire 0.24s infinite;}
+    
+    @keyframes dancing_fire {
+    0% {
+        transform-origin: 50% 50%;
+        transform: translate(0, -10px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 50px) scale(1);
+        opacity: 0;
+    }
+    }
+
+/* After the Launching of Parker solar probe */
+
+.after-launching-section {
+    background-color: #111425;
+    background: url(img/bg/stars-bg.png);
+    overflow-y: hidden;
+}
+
+.after-launching-section .ill-container2 .m1{
+    animation: meteor 2.5s linear infinite;
+    transform: scale(0.7);
+}
+
+.after-launching-section .ill-container2 .m2{
+    animation: meteor 1.5s linear infinite;
+    transform: scale(0.9);
+}
+
+
+@keyframes meteor {
+    0%{
+        transform:translateX(-400px);
+    }
+    100%{
+        transform:translateX(1350px);
+    }
+}
+
+/* the Journey of Parker solar probe */
+.journey-section {
+    background-color: #111425;
+    background: url(img/bg/stars-bg.png);
+}
+
+.journey-section h3{
+    padding-top: 100px;
+    text-align: center
+}
+
+
+.journey-section .journey-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    width: 100%;
+    margin: 10rem auto 0 auto;
+}
+
+
+.journey-section .journey-container img{
+    height: 250px;
+    margin-top: 50px;
+    border: 2px #fff solid;
+}
+
+.journey-section .journey-container h3{
+    margin: 0;
+    color: #fff;
+}
+
+.journey-section .journey-container p{
+    color: #fff;
+    margin: 25px 15px 25px;
+    margin-right: 40px;
+    width: 90%;
+}
+
+.journey-section .journey-container span p{
+    color: #ffff47;
+    font-weight: 600;
+}
+
+/* After the mission of Parker solar probe */
+
+.after-mission {
+    background: url(img/bg/watermarks.png);
+    background-color: #e59438;
+}
+
+.after-mission .journey-container span p{
+    color: #dbdbdb;
+    font-weight: 600;
+}
+
+.after-mission img{
+    width: 300px;
+}
+
+.after-mission .journey-container .text span p i {
+    color: #f4e809;
+}
+
+.after-mission .border-none img{
+    border: none;
+}
+
+/*Problems encounter during the journey of Parker solar probe */
+
+.problems-section {
+    background: url(img/bg/watermarks.png);
+    background-color: #808080;
+}
+
+.problems-section .journey-container .text h4 i{
+    color: #f4e809;
+}
+
+.problems-section .journey-container .text .keep {
+    margin-bottom: 50px;
+}
+
+/* Space weather phenomena */
+
+.weather-section {
+    background: url(img/bg/stars-bg2.png);
+    background-color: #080808;
+}
+
+.weather-section img {
+    margin-left: 34%;
+    border: 2px #fff solid;
+    width: 500px;
+}
+
+.weather-section h3 {
+    margin-top: 100px;
+}
+
+.weather-section h4 {
+    color: #c5c5c5;
+    margin-top: 150px;
+}
+
+.weather-section .ill2{
+    background: linear-gradient(to top, #222b8b, #2c2cb4);
+    border-radius: 100% 0% 100% 0% / 6% 94% 6% 94% ;
+}
+
+/* Lessons and References */
+
+.lesson-references .journey-container{
+    background:  #e59438;
+    margin-top: 0rem;
+}
+
+.lesson-references .journey-container .text h5{
+    font-size: 24px;
+}
+
+.lesson-references .journey-container .text a{
+    text-decoration: none;
+    color: #0000e6;
+    font-size: 22px;
+    line-height: 65px;
+    transition: 0.3s ease-in-out;
+}
+
+.lesson-references .journey-container .text a:hover{
+    color: #ff00ff;
+}
+
+.lesson-references .journey-container .btn a{
+    text-decoration: none;
+    background-color: #fff;
+    font-size: 16px;
+    padding: 13px 35px;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-left: 685px;
+}
+
+.lesson-references .journey-container .btn a{
+    color: #fff;
+    background-color: rgb(21, 21, 100);
+    transition: 0.3s ease;
+}
+
+.lesson-references .journey-container .btn a:hover{
+    color: rgba(241,131,19,255);
+    background-color: #fff;
+    padding: 16px 38px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #000;
+    min-height: 2vh;
+}
+
+footer .pro {
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    background-color: #000;
+}
+
+footer .pro i {
+    color: #0075ff;
+}
+
+footer .pro .sun{
+    color: #ffff00;
+}
+
+
+/** media query For Ipad**/
+
+@media (max-width: 912px){
+    /* The Sun */
+#sun {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 39%;
+    width: 20%;
+    height: 20%;
+}
+
+/* The Probe */
+#probe {
+    display: none;
+    position: absolute;
+    width: 29%;
+    object-fit: cover;
+    left: 22%;
+    transform: rotate(-15deg);
+    animation: probeA;
+    animation-duration: 7s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* Scene Text */
+#text {
+    font-size: 5em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80%);
+}
+
+/* The drop Arrow */
+#drob-arrow {
+    position: absolute;
+    object-fit: cover;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(60%);
+    opacity: 0;
+    animation: move 1.1s infinite ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 3.5s;
+}
+
+/* The Clouds */
+.scene #cloud1 {
+    position: absolute;
+    bottom: -5%;
+    width: 90%;
+    left: -5%;
+    z-index: 2;
+    object-fit: cover;
+}
+
+.scene #cloud2 {
+    position: absolute;
+    bottom: -4%;
+    width: 50%;
+    right: 0;
+    z-index: 2;
+    object-fit: cover;
+}
+
+/* Fire & Probe */
+.mo-fire {
+    display: none;
+    width: 200px;
+    height: auto;
+    position: absolute;
+    left:75%;
+    margin-left: -100px;
+    bottom: 50px;
+}
+
+.ill-probe .probe2 {
+    display: none;
+    width: 400px;
+    height: auto;
+    position: absolute;
+    left: 75%;
+    margin-left: -100px;
+    transform: translateX(-160px) rotate(-115deg);
+    animation: probeB;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* ill-probe img & P*/
+.ill-probe img {
+    width: 100%;
+}
+
+.ill-probe p {
+    margin: 30px 0 30px 30px;
+}
+
+/* ill-probe2 img & P*/
+.ill-probe2 img{
+    display: block;
+    margin: 25px auto 0 auto;
+    max-height: 100%;
+}
+
+.ill-probe2 p {
+    margin: 30px 19px;
+}
+
+
+/* The Cards */
+.ill-probe2 .ill2 {
+    margin: 15px auto;
+}
+
+/* FILDES img */
+.fields-section img {
+    width: auto;
+    height: 250px;
+}
+
+/* Wisper img */
+.wisper-section img {
+    width: auto;
+    height: 200px;
+}
+
+/* ISOIS imgs */
+.isois-section .img-1 {
+    width: auto;
+    height: 220px;
+}
+
+/* Meteors Animation */
+@keyframes meteor {
+    0%{
+        transform:translateX(-400px);
+    }
+    100%{
+        transform:translateX(780px);
+    }
+}
+
+/* journey-section img */
+
+.journey-section .journey-container img {
+    height: 200px;
+    margin-top: 50px;
+    border: 2px #fff solid;
+}
+
+/* GO on a journey again button */
+.lesson-references .journey-container .btn a {
+    margin: 0;
+}
+}
+
+
+
+/** media query For Iphone**/
+
+@media (max-width: 475px){
+    /*Scrolling effect*/
+    .hidden {
+        opacity: 0;
+        filter: blur(5px);
+        transition: all 1s;
+    }
+    
+    .show {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    /* Font size */
+    h2 {
+        font-size: 40px;
+        line-height: 54px;
+        color: #fff;
+    }
+
+    /*The text*/
+    #text {
+        font-size: 3em;
+    }
+
+    /*The drop arrow*/
+    #drob-arrow {
+        position: absolute;
+        object-fit: cover;
+        width: 27%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+        animation: move 1.1s infinite ease-in-out;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        animation-delay: 3.5s;
+    }
+
+    /* The Clouds */
+    .scene #cloud1 {
+        display: none;
+        position: absolute;
+        bottom: -5%;
+        width: 90%;
+        left: -5%;
+        z-index: 2;
+        object-fit: cover;
+    }
+
+    .scene #cloud2 {
+        display: none;
+        position: absolute;
+        bottom: -4%;
+        width: 50%;
+        right: 0;
+        z-index: 2;
+        object-fit: cover;
+    }
+
+    /*Hyperlink img cards*/
+    .intro-ill-box .fe-box {
+        margin: 55px auto;
+    }
+
+    /*ill-probe cards*/
+    .ill-probe .ill {
+        margin: 15px auto;
+    }
+
+    /*ill-probe2 cards*/
+    .ill-probe2 .ill2 {
+    margin: 15px auto;
+    }
+
+    /* ill-probe2 img*/
+    .ill-probe2 img{
+        width: 100%;
+        display: block;
+        margin: 25px auto 0 auto;
+    }
+
+    /*ISOIS img*/
+    .isois-section .img-2 {
+        padding-top: 40px;
+        width: auto;
+        height: 350px;
+    }
+
+    /*Launching Section Clouds & P & Rocket*/
+    .launching-section .cloud {
+        height: 240px;
+        width: 550px;
+        margin: 70px auto;
+    }
+
+    .x1{
+        animation: animateCloud 10s linear infinite;
+        transform: scale(0.65);
+    }
+    
+    .x2{
+        animation: animateCloud 3s linear infinite;
+        transform: scale(0.3);
+    }
+    
+    .x3{
+        animation: animateCloud 5s linear infinite;
+        transform: scale(0.5);
+    }
+    
+    .x4{
+        animation: animateCloud 6s linear infinite;
+        transform: scale(0.4);
+    }
+    
+    .x5{
+        animation: animateCloud 4s linear infinite;
+        transform: scale(0.55);
+    }
+
+    .launching-section .cloud p{
+        padding: 0;
+    }
+
+    .roket-container {
+        width: 202px; 
+        height: 380px;
+        position: absolute;
+        left: -25%; 
+        top: 50%; 
+        right: 0; 
+        bottom: 0;
+        margin: auto;
+        animation: vibration 0.2s infinite;
+    }
+
+    /* ISOIS Section */
+    .isois-section .img-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Journey Section */
+    .journey-section .journey-container {
+        display: block;
+        justify-content: space-between;
+        padding: 40px;
+        width: 100%;
+        margin: 10rem auto 0 auto;
+    }
+
+    .journey-section .journey-container img {
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+        margin-bottom: 70px;
+        border: 2px #fff solid;
+    }
+
+    .journey-section .journey-container {
+        display: block;
+        justify-content: space-between;
+        padding: 40px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .journey-section .journey-container p{
+        width: 100%;
+    }
+}
